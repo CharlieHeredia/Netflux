@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="peliculas">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Netflux.com</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <script src="./js/angular/angular.min.js" charset="utf-8"></script>
+  <script src="./js/angular/angular-resource.min.js" charset="utf-8"></script>
+  <script src="./js/angular/FirstController.js" charset="utf-8"></script>
+  <script src="./js/jquery.js" type="text/javascript">  </script>
+  <link rel="icon" href="/public/icono.ico"/>
+
+
+</head>
+<body ng-controller="FirstController">
+  <nav class="light-blue lighten-1 navbar-fixed-top" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Netflux</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="aboutUs.php">About us</a></li>
+        <li><a href="comentsPage.php">Comments</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="aboutUs.php">About us</a></li>
+        <li><a href="comentsPage.php">Comments</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="">
+    <img src="http://www.fundayoutdoormovies.com/wp-content/uploads/2014/05/popcorn.jpg" width="100%" alt="">
+  </div>
+  <!--
+  <div >
+    <ul ng-social-buttons class="col-span-6 col-push-3" style="margin-top:150px"
+         data-url="'http://uno-de-piera.com/'"
+         data-title="current_title"
+         data-description="'{{ current_description }}'"
+         data-image="'http://uno-de-piera.com/wp-content/uploads/2013/09/codeigniter-lg-150x150.gif'">
+        <li class="ng-social-facebook">Facebook</li>
+        <li class="ng-social-google-plus">Google+</li>
+        <li class="ng-social-twitter">Twitter</li>
+        <li class="ng-social-pinterest">Pinterest</li>
+        <li class="ng-social-github" user="uno-de-piera" repository="simplerecaptcha">GitHub</li>
+        <li class="ng-social-github-forks" user="uno-de-piera" repository="simplerecaptcha">Forks</li>
+    </ul>
+  </div>
+-->
+  <div class="row">
+    <div class="col m12">
+      <div class="col m4" ng-repeat="mov in movies">
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" ng-src="https://image.tmdb.org/t/p/w500/{{mov.poster_path}}">
+          </div>
+          <div class="card-content" style="background:#002036;color:white;" >
+            <span class="card-title activator">{{mov.title}}<i class="material-icons right">more_vert</i></span>
+            <p>Votes:{{mov.vote_count}}</p>
+            <p>Popularity:{{mov.popularity}}</p>
+          </div>
+          <div class="card-reveal" style="background:#002036;color:white;" >
+            <span class="card-title ">Overview<i class="material-icons right">close</i></span>
+            <p style=”text-align:justify”>{{mov.overview}}.</p>
+            <img class="activator"  ng-src="https://image.tmdb.org/t/p/w500/{{mov.backdrop_path}}" width="100%">
+            <p>Release date: {{mov.release_date}}</p>
+            <p>Buy tickets online</p>
+            <a href="http://www.cinepolisusa.com/index.aspx">
+              <img src="http://indelco.com.mx/images/logotipos/Cinepolis-02.png" width="30%"alt="">
+            </a>
+            <br><br>
+            <a href="https://www.regmovies.com/">
+              <img src="https://corporateboxoffice.com/skin/frontend/pyxl/default/images/regal_logo2x.png" width="30%" alt="">
+            </a>
+            <br><br>
+            <a href="https://www.amctheatres.com/">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Amc_theatres_logo.svg/2000px-Amc_theatres_logo.svg.png" width="10%"alt="">
+            </a>
+
+            <!--
+            <p>Comments</p>
+            <div class="input-field col s12">
+              <textarea id="textarea1" class="materialize-textarea" name="com"></textarea>
+              <label for="textarea1">Share a comment.</label>
+              <a class="btn btn-success" ng-click="comment()">Send</a>
+            </div>
+          -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">{{nombre}} SITIO DE PELÍCULA</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+      </div>
+      <div class="row center">
+        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+-->
+<!--
+  <div class="container">
+    <div class="section">
+      <div class="row">
+        <div class="input-field col s6">
+          <input ng-model="nombre" ng-keyup="tam()" placeholder="placeholder" type="text" class="validate" name="nombre" value="">
+          <label for="first_name">First name</label>
+        </div>
+
+        <div class="input-field col s12">
+          <textarea id="textarea1" class="materialize-textarea"></textarea>
+          <label for="textarea1">Textarea</label>
+        </div>
+        <a href="#" ng-click="ver()">Consola</a>
+        <div class="" ng-repeat="post in arreglo">
+            {{post.post}}
+        </div>
+      </div>
+    </div>
+    <br><br>
+  </div>
+-->
+  <footer class="page-footer light-blue">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Netflux</h5>
+          <p class="grey-text text-lighten-4">We share of passion for movies.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Contact us</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Donations</a></li>
+            <li><a class="white-text" href="#!">FAQ</a></li>
+            <li><a class="white-text" href="#!">Advertisers</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Partners</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Traemello</a></li>
+            <li><a class="white-text" href="http://www.imdb.com/movies-in-theaters/">IMDb</a></li>
+            <li><a class="white-text" href="http://www.cinepolisusa.com/index.aspx">Cinépolis</a></li>
+            <li><a class="white-text" href="https://www.regmovies.com/">Regmovies</a></li>
+            <li><a class="white-text" href="https://www.amctheatres.com/">AMC Theatres</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
